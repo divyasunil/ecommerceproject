@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+    {% if category %}
+        {{ category.description|truncatewords:155 }}
+    {% else %}
+        Welcome to Divya's Shopping Cart. Shop any time
+    {% endif %}
+{% endblock %}
+{% block title %}
+    {% if category %}
+        {{ category.name }} - Divya's Shop
+    {% else %}
+       See New Collections - Divya's Cart
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if category %}
+        <div>
+            <div>
+                <p>
+                    <a href="{% url 'eshop:allProdCat' %}">
+                        All Product Collections
+                    </a>
+                </p>
+            </div>
+        </div>
+    {% endif %}
+    {% if category %}
+    <div>
+        <img src="{{category.image.url}}" alt="{{category.name}}">
+    </div>
+    <br/>
+    <div>
+        <h1>{{category.name}}</h1>
+        <p>{{category.description}}</p>
+    </div>
+    {% else %}
+    <div>
+        <img src="{% static 'images/websitebanner.png' %}" alt="our products">
+    </div>
+    <br/>
+    <div>
+        <h1>Product Collections</h1>
+        <p>In many cases customers can then also use the cart to transport their purchased goods to their vehicles, but some carts are designed to prevent them from leaving either the store or the designated parking area by magnetically locking the wheels. In many places in the United States, Canada and the United Kingdom, customers are encouraged to leave the carts in designated areas within the parking lot, and store employees will return the carts to the entrances. In some areas carts are connected by locking mechanisms that require the insertion of a coin or token to release an individual cart. Returning the cart to its designated area releases the coin to the customer.</p>
+    </div>
+    {% endif %}
+    
+    <div>
+        <div>
+            {% for product in products %}
+            <div>
+                <div>
+                    <a href="">
+                        <img src="{{product.image.url}}" alt="{{product.name}}">
+                    </a>
+                    <div>
+                        <h4>{{product.name}}</h4>
+                        <p>{{product.price}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

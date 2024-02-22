@@ -1,0 +1,12 @@
+mkvirtualenv eshop
+django-admin startproject ecommerceproject
+cd ecommerceproject
+pip install django
+py manage.py startapp eshop
+pip install pillow
+py manage.py makemigrations
+py manage.py migrate
+
+ py manage.py createsuperuser
+user: eshop
+pass:12345

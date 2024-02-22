@@ -1,0 +1,20 @@
+<nav>
+    <ul>
+        <li>
+            <a href="{% url 'eshop:allProdCat' %}">
+                All Products
+            </a>
+        </li>
+        {% for link in links %}
+            <li>
+                <a href="{{link.get_url}}">
+                    Click
+                </a>
+            </li>
+        {% endfor %}
+        <li>
+            Your Cart()
+        </li>
+
+    </ul>
+</nav>
