@@ -10,3 +10,7 @@ py manage.py migrate
  py manage.py createsuperuser
 user: eshop
 pass:12345
+
+
+py manage.py startapp search_app
+py manage.py startapp cart
