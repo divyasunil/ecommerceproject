@@ -14,3 +14,8 @@ pass:12345
 
 py manage.py startapp search_app
 py manage.py startapp cart
+
+Python Anywhere
+username: divyarohith
+email: divyarohith1331@gmail.com
+p: rudraR@131531
