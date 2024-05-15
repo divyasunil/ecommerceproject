@@ -19,3 +19,73 @@ Python Anywhere
 username: divyarohith
 email: divyarohith1331@gmail.com
 p: rudraR@131531
+
+
+
+bash:
+pwd
+mkvirtualenv ectest --python=/usr/bin/python3.6
+git clone https://github.com/divyasunil/ecommerceproject
+ls
+# move inside the folder where manage.py present
+cd ecommerceproject
+
+pip install django
+pip install mysql-connector-python
+pip install pillow
+pip install mysqlclient
+
+create web app
+manal config
+python3.6
+
+edit WSGI configuration file:/var/www/divyarohith_pythonanywhere_com_wsgi.py
+keep only DJANGO code
+
+update path with manage.py file
+get using pwd in bash
+path = '/home/divyarohith/ecommerceproject'
+get  folder of settings.py file
+os.environ['DJANGO_SETTINGS_MODULE'] = 'ecommerceproject.settings'
+save the file
+
+edit settings.py
+ALLOWED_HOSTS = ['*']
+
+Create Database
+set password : divyaCG@12345
+ set database name : ecommercedatabase
+
+
+sql
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'divyarohith$ecommercedatabase',
+        'USER': 'divyarohith',
+        'PASSWORD': 'divyaCG@12345',
+        'HOST': 'divyarohith.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
+    }
+}
+
+set virtual env in webapp page
+/home/divyarohith/.virtualenvs/ectest
+
+set static file path
+/home/divyarohith/ecommerceproject/static
+URL	: /static/
+Directory: /home/divyarohith/ecommerceproject/static
+
+migrations
+got to ->>>  /home/divyarohith/ecommerceproject/eshop/migrations
+delete all files except __init__.py (cart & eshop)
+
+open console-->> mysql console
+mysql>show databases;
+
+in bash console
+ python manage.py makemigrations
+ python manage.py migrate
+
+python manage.py runserver
