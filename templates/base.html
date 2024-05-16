@@ -11,16 +11,41 @@
         <script src="https://kit.fontawesome.com/1b99dd44bf.js" crossorigin="anonymous"></script>
         <meta name="description" content="{% block metadescription %}{% endblock %}">
         <title>{% block title %}{% endblock %}</title>
+          <style>
+            body {
+              display: flex;
+              flex-direction: column;
+              min-height: 100vh;
+              margin: 0;
+            }
+
+            .content {
+              flex: 1;
+              padding: 20px;
+            }
+
+            .footer {
+              background-color: #e8f9ff;
+              padding: 10px;
+              text-align: center;
+              font-size: 14px;
+              color: #333;
+            }
+          </style>
     </head>
     <body>
-        <div class="container">
-            {% include 'header.html' %}
-            {% include 'nav.html' %}
-                {% block content %}
-                {% endblock %}
+        <div class="content">
+            <div class="container">
+                {% include 'header.html' %}
+                {% include 'nav.html' %}
+                    {% block content %}
+                    {% endblock %}
+            </div>
         </div>
-        {% include 'footer.html' %}
         <script src="{% static 'js/popper.min.js' %}" ></script>
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
     </body>
+    <footer class="footer">
+        {% include 'footer.html' %}
+    </footer>
 </html>

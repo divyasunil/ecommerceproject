@@ -50,10 +50,12 @@
             In many places in the United States, Canada and the United Kingdom, customers are encouraged to leave the carts in designated areas within the parking lot, and store employees will return the carts to the entrances. In some areas carts are connected by locking mechanisms that require the insertion of a coin or token to release an individual cart. Returning the cart to its designated area releases the coin to the customer.</p>
     </div>
     {% endif %}
-    
+
+    {% if products %}
     <div class="container">
         <div class="row mx_auto">
-            {% for product in products.object_list %}
+            <!-- for product in products.object_list-->
+            {% for product in products %}
             <div class="productSingle col-9 col-sm-12 col-md-4 xol-lg-4">
                 <div class="card text-center" style="min-width:18rem;">
                     <a href="{{product.get_url}}">
@@ -78,4 +80,5 @@
             {% endif %}
         </div>
     </div>
+    {% endif %}
 {% endblock %}

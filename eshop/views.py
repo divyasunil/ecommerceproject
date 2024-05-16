@@ -8,11 +8,13 @@ from django.core.paginator import Paginator,EmptyPage,InvalidPage
 #     return HttpResponse("Hai")
 
 def allProdCat(request, c_slug=None):
+    global products
     c_page = None
     products_list = None
     if c_slug != None:
         c_page = get_object_or_404(Category, slug=c_slug)
         products_list = Product.objects.all().filter(category=c_page, available=True)
+        products = products_list
     else:
         products_list = Product.objects.all().filter(available=True)
         paginator=Paginator(products_list,6)
@@ -24,7 +26,6 @@ def allProdCat(request, c_slug=None):
             products=paginator.page(page)
         except (EmptyPage,InvalidPage):
             products=paginator.page(paginator.num_pages)
-
     return render(request, 'category.html', {'category': c_page, 'products': products, })
 
 def productDetail(request,c_slug,product_slug):
